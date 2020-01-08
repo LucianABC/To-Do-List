@@ -9,8 +9,6 @@ try {
     const deleteTodo = deleteJs.deleteTodo;
 } catch (e) {}
 
-
-
 const printList = () => {
     for (let todo of lista) {
         let idSpan = document.createElement("span");
@@ -48,7 +46,6 @@ const printList = () => {
         todoUl.appendChild(li);
     }
 }
-
 
 const getTodos = () =>{
     axios.get(baseUrl)

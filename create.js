@@ -55,7 +55,7 @@ const add2list = (newTodo) => {
     todoUl.appendChild(li);
 }
 
-const createTodo = (title, userId) => {
+const createTodo = (title=title, userId=user) => {
     let data = {
         title,
         userId,
@@ -71,5 +71,5 @@ const createTodo = (title, userId) => {
 };
 
 const addButton = document.querySelector("#todo-create");
-//addButton.addEventListener("click", createTodo(title,user));
+addButton.addEventListener("click", createTodo);
 addButton.addEventListener("click", getTodos);

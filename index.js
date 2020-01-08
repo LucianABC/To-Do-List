@@ -1,14 +1,3 @@
-const baseUrl = "https://jsonplaceholder.typicode.com/todos";
-let lista = [];
-let todo = {
-    title: "",
-    userId: null,
-    completed: false
-};
-
-const handleError = err =>{
-    alert(`Hubo un error. ${err}`);
-};
 
 const getTodos = () =>{
     axios.get(baseUrl)
@@ -26,18 +15,6 @@ const getTodo = id => {
         .catch(handleError);
 };
 
-const createTodo = (title, userId) => {
-    let data = {
-        title,
-        userId,
-        completed: false
-    }
-    axios.post(baseUrl, data)
-        .then(res => {
-            lista.push(res.data);
-        })
-        .catch(handleError);
-};
 
 const deleteTodo = id => {
     axios.delete(`${baseUrl}/${id}`)

@@ -12,6 +12,9 @@ const addButton = document.querySelector("#todo-create");
 const newTitleInput = document.querySelector("#todo-title-create");
 const newUserInput = document.querySelector("#todo-user-create");
 
+let title = newTitleInput.value;
+let user = newUserInput.value;
+
 const createTodo = (title, userId) => {
     let data = {
         title,
@@ -25,7 +28,6 @@ const createTodo = (title, userId) => {
         .catch(handleError);
 };
 
-const addTodoToList = (todo) => {
 
-}
-addButton.addEventListener(click, createTodo)
+
+addButton.addEventListener(click, createTodo(title,user))

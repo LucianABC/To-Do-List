@@ -11,11 +11,13 @@ const handleError = err =>{
     alert(`Hubo un error. ${err}`);
 };
 
+const todoUl = document.querySelector("#todo-list");
 try {
     module.exports = {
         baseUrl,
         lista,
         todo,
-        handleError
+        handleError,
+        todoUl
     }
  } catch (e) {}

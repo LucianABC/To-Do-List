@@ -16,16 +16,7 @@ const getTodo = id => {
 };
 
 
-const deleteTodo = id => {
-    axios.delete(`${baseUrl}/${id}`)
-        .then(res => {
-            const index = lista.findIndex(todo => {
-                return todo.id == id;
-            })
-            lista.splice(index, 1);
-        })
-        .catch(handleError);
-};
+
 
 const modifyTodo = (id, title, userId, completed) => {
     let data = {

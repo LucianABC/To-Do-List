@@ -1,6 +1,7 @@
 const baseUrl = "https://jsonplaceholder.typicode.com/todos";
 let lista = [];
 let todo = {
+    id: null,
     title: "",
     userId: null,
     completed: false

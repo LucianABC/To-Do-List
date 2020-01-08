@@ -31,5 +31,10 @@ const todoUl = document.querySelector("#todo-list");
         let li = document.createElement("li");
         li.className = "todo-item";
 
+        li.appendChild(idSpan)
+        li.appendChild(titleSpan)
+        li.appendChild(userSpan)
+        li.appendChild(statusSpan)
+
     }
- }
+}

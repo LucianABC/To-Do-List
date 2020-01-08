@@ -12,6 +12,7 @@ const handleError = err =>{
 };
 
 const todoUl = document.querySelector("#todo-list");
+
 try {
     module.exports = {
         baseUrl,

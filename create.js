@@ -13,63 +13,28 @@ try {
 
  } catch (e) {}
 
-const newTitleInput = document.querySelector("#todo-title-create");
-const newUserInput = document.querySelector("#todo-user-create");
-let title = newTitleInput.value;
-let user = newUserInput.value;
 
-const add2list = (newTodo) => {
-    let toDo = newTodo;
-    
-    let idSpan = document.createElement("span");
-    let titleSpan = document.createElement("span");
-    let userSpan = document.createElement("span");
-    let statusSpan = document.createElement("span");
 
-    idSpan.innerHTML = toDo.id;
-    idSpan.className = "todo-id";
-    titleSpan.innerHTML=toDo.title;
-    titleSpan.className = "todo-title";
-    userSpan.innerHTML=toDo.userId;
-    userSpan.className = "todo-user";
-    statusSpan.innerHTML=toDo.completed;
-    statusSpan.className = "todo-completed";
 
-    let deleteButton = document.createElement("button");
-    deleteButton.className ="todo-delete";
-    deleteButton.innerHTML = "Eliminar";
-    deleteButton.addEventListener("click",()=>{
-        let li = deleteButton.parentElement;
-        li.parentNode.removeChild(li);
-        deleteTodo(toDo.id);
-    });
 
-    let li = document.createElement("li");
-    li.className = "todo-item";
-    li.appendChild(idSpan);
-    li.appendChild(titleSpan);
-    li.appendChild(userSpan);
-    li.appendChild(statusSpan);
-    li.appendChild(deleteButton);
-
-    todoUl.appendChild(li);
-}
-
-const createTodo = (title=title, userId=user) => {
+const createTodo = event => {
+     newTitle = document.querySelector("#todo-title-create").value;
+     newUser = document.querySelector("#todo-user-create").value;
     let data = {
-        title,
-        userId,
+        title: newTitle,
+        userId: newUser,
         completed: false
     }
-    axios.post(baseUrl, data)
+    lista.push(data); // ahora no anda el push?
+    /*axios.post(baseUrl, data)
         .then(res => {
             lista.push(res.data);
-            add2list(res.data);
-            
+            //pushea algo vacio.
         })
-        .catch(handleError);
+        .catch(handleError);*/
 };
 
 const addButton = document.querySelector("#todo-create");
 addButton.addEventListener("click", createTodo);
 addButton.addEventListener("click", getTodos);
+//el get se ejecuta antes que el create

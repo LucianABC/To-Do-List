@@ -22,16 +22,32 @@
     <section class="card-container">
         <section class="card">
             <h1>Modificar To Do</h1>
-            <input type="number" value="1" id="todo-id-update" />
-            <input type="text" value="mi titulo" id="todo-title-update" />
-            <input type="number" value="1" id="todo-user-update" />
-            <input type="checkbox" checked id="todo-completed-update" />
+            <article class ="card-inputs">
+                <div id="todo-id-update-div">
+                    <span>Tarea a modificar</span>
+                    <input type="number" id="todo-id-update" placeholder="ID"/>
+                </div id="todo-id-update">
+                <div id="todo-user-update-div">
+                    <span>Usuario</span>
+                    <input type="number"  id="todo-user-update" placeholder="Usuario"/>    
+                </div>
+                <div id="todo-title-update-div">
+                    <span>Tarea</span>
+                    <input type="text" id="todo-title-update" placeholder="Texto"/>
+                </div>
+
+                <div id="todo-completed-update-div"> 
+                    <span>Tarea completada</span>
+                    <input type="checkbox" checked id="todo-completed-update" />
+                </div>
+            </article>    
+            
             <button id="todo-update">Modificar</button>
         </section>
         <section class="card">
             <h1>Agregar To Do</h1>
-            <input type="text" id="todo-title-create" placeholder="title"/>
-            <input type="number" id="todo-user-create" placeholder="user"/>
+            <input type="text" id="todo-title-create" placeholder="Tarea"/>
+            <input type="number" id="todo-user-create" placeholder="Usuario"/>
             <button id="todo-create">Agregar</button>
         </section>
     </section>

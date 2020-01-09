@@ -15,11 +15,9 @@ ul {
         display:flex;
 
         &:first-child {
-            span {
-                
-            background-color: #bdbdbd;
-            border-bottom: 1px solid #999;
-
+            span {    
+                background-color: #bdbdbd;
+                border-bottom: 1px solid #999;
             }
         }
         span {
@@ -33,14 +31,11 @@ ul {
                 width:10%;
             }
         }   
-
         button {
-            
             width: 22%;
             padding:0;
             border:none;
             border-bottom: 1px solid #999;
-
         }
     }
 }
@@ -49,12 +44,51 @@ ul {
     box-shadow: 0 0 5px #666;
     padding: 25px;
     margin: 25px;
-
     h1 {
         margin: 0;
         margin-bottom: 15px;
     }
-    input {
+    
+    button {
+        margin-top: 10px;
+    }
+    .card-inputs {
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        align-items: center;
 
+        div {
+            display: flex;
+            flex-direction: column;
+            width:50%;
+            
+            box-sizing: border-box;
+            margin-top: 10px;
+            span {
+                margin-bottom: 4px;              
+            }
+        }
+    }
+    #todo-id-update-div {
+        width: 25%;
+        input{
+            width:70%;
+        }
+    }
+    #todo-user-update-div{
+        width: 75%;  
+    }
+
+    #todo-title-update-div{
+        width:100%;
+    }
+
+    #todo-completed-update-div {
+        flex-direction: row;
+        align-items: center;
+        span {
+            margin: 5px;
+        }
     }
 }

@@ -45,5 +45,43 @@ ul li button {
   margin: 0;
   margin-bottom: 15px;
 }
+.card button {
+  margin-top: 10px;
+}
+.card .card-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-items: center;
+}
+.card .card-inputs div {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  box-sizing: border-box;
+  margin-top: 10px;
+}
+.card .card-inputs div span {
+  margin-bottom: 4px;
+}
+.card #todo-id-update-div {
+  width: 25%;
+}
+.card #todo-id-update-div input {
+  width: 70%;
+}
+.card #todo-user-update-div {
+  width: 75%;
+}
+.card #todo-title-update-div {
+  width: 100%;
+}
+.card #todo-completed-update-div {
+  flex-direction: row;
+  align-items: center;
+}
+.card #todo-completed-update-div span {
+  margin: 5px;
+}
 
 /*# sourceMappingURL=styles.css.map */

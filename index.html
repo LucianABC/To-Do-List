@@ -19,9 +19,26 @@
 
         </li>
     </ul>
-    <section class="card-container">
+    <section class="cards-container">
+        
         <section class="card">
-            <h1>Modificar To Do</h1>
+            <h1>Agregar Tarea</h1>
+            <section class="card-inputs">
+                <div id="todo-user-create-div">
+                    <span>Usuario</span>
+                    <input type="number" id="todo-user-create" placeholder="Usuario"/>
+                </div>
+                <div id="todo-title-create-div">
+                    <span>Tarea</span>
+                    <input type="text" id="todo-title-create" placeholder="Tarea"/>
+                </div>
+                
+            </section>
+            <button id="todo-create">Agregar</button>
+        </section>
+
+        <section class="card">
+            <h1>Modificar Tarea</h1>
             <article class ="card-inputs">
                 <div id="todo-id-update-div">
                     <span>Tarea a modificar</span>
@@ -43,12 +60,6 @@
             </article>    
             
             <button id="todo-update">Modificar</button>
-        </section>
-        <section class="card">
-            <h1>Agregar To Do</h1>
-            <input type="text" id="todo-title-create" placeholder="Tarea"/>
-            <input type="number" id="todo-user-create" placeholder="Usuario"/>
-            <button id="todo-create">Agregar</button>
         </section>
     </section>
 

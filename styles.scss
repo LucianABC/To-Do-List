@@ -50,7 +50,7 @@ ul {
     }
     
     button {
-        margin-top: 10px;
+        margin-top: 20px;
     }
     .card-inputs {
         display: flex;
@@ -62,7 +62,6 @@ ul {
             display: flex;
             flex-direction: column;
             width:50%;
-            
             box-sizing: border-box;
             margin-top: 10px;
             span {
@@ -90,5 +89,12 @@ ul {
         span {
             margin: 5px;
         }
+    }
+    #todo-user-create-div {
+        width:40%;
+    }
+    
+    #todo-title-create-div {
+        width: 100%;
     }
 }

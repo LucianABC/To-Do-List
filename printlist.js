@@ -57,7 +57,7 @@ const printList = () => {
         li.classList.add("done");
         }
         
-        todoUl.appendChild(li);
+        todoUl.appendChild(li)
     }
 }
 

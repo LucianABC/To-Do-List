@@ -2,15 +2,20 @@ body {
     display: flex;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
+    margin: 0;
+    background-color: #F0F0F0;
 }
 
 ul {
     list-style: none;
     display: flex;
     flex-direction: column;
-    padding:10px;
+    padding:0;
     width: 75%;
     box-sizing: border-box;
+    background-color: white;
+    margin: 10px;
+    border:1px solid #999;
     li {
         box-sizing: border-box;
         display:flex;
@@ -37,6 +42,7 @@ ul {
             padding:0;
             border:none;
             border-bottom: 1px solid #999;
+            background-color: #cccccc;
         }
     }
 }
@@ -45,6 +51,7 @@ ul {
     box-shadow: 0 0 5px #666;
     padding: 25px;
     margin: 25px;
+    background-color: white;
     h1 {
         margin: 0;
         margin-bottom: 15px;

@@ -10,7 +10,16 @@ try {
 } catch (e) {}
 
 const printList = () => {
-    todoUl.innerHTML="";
+    todoUl.innerHTML=`
+    <li>
+    <span>ID</span>
+    <span>Tarea</span>
+    <span>Usuario</span>
+    <span>Completada</span>
+    <span>Eliminar</span>
+
+</li>`;
+    
     for (let todo of lista) {
         let idSpan = document.createElement("span");
         let titleSpan = document.createElement("span");

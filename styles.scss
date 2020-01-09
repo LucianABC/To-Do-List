@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    width: 75%;
+    li {
+        box-sizing: border-box;
+        display:flex;
+
+        &:first-child {
+            span {
+                
+            background-color: #bdbdbd;
+            border-bottom: 1px solid #999;
+
+            }
+        }
+        span {
+            box-sizing: border-box;
+            width: 22%;
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #999;
+
+            &:first-child{
+                width:10%;
+            }
+        }   
+
+        button {
+            
+            width: 22%;
+            padding:0;
+            border:none;
+            border-bottom: 1px solid #999;
+
+        }
+    }
+}
+
+.card{
+    box-shadow: 0 0 5px #666;
+    padding: 25px;
+    margin: 25px;
+
+    h1 {
+        margin: 0;
+        margin-bottom: 15px;
+    }
+    input {
+
+    }
+}

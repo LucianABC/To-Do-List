@@ -34,6 +34,7 @@ const printList = () => {
         userSpan.className = "todo-user";
         statusSpan.innerHTML=todo.completed;
         statusSpan.className = "todo-completed";
+        
 
         let deleteButton = document.createElement("button");
         deleteButton.className ="todo-delete";
@@ -52,7 +53,10 @@ const printList = () => {
         li.appendChild(userSpan);
         li.appendChild(statusSpan);
         li.appendChild(deleteButton);
-
+        if (todo.completed) {
+        li.classList.add("done");
+        }
+        
         todoUl.appendChild(li);
     }
 }

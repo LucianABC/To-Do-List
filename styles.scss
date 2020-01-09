@@ -10,6 +10,7 @@ ul {
     flex-direction: column;
     padding:10px;
     width: 75%;
+    box-sizing: border-box;
     li {
         box-sizing: border-box;
         display:flex;
@@ -22,7 +23,7 @@ ul {
         }
         span {
             box-sizing: border-box;
-            width: 22%;
+            width: 22.5%;
             padding: 10px;
             text-align: center;
             border-bottom: 1px solid #999;
@@ -32,7 +33,7 @@ ul {
             }
         }   
         button {
-            width: 22%;
+            width: 22.5%;
             padding:0;
             border:none;
             border-bottom: 1px solid #999;
@@ -97,4 +98,9 @@ ul {
     #todo-title-create-div {
         width: 100%;
     }
+}
+
+
+.done {
+    background-color: #c6ff75;
 }

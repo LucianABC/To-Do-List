@@ -11,11 +11,11 @@ try {
     const printList = printlistjs.printList;
     const getTodos = printlistjs.getTodos;
 
- } catch (e) {}
+} catch (e) {}
 
 const createTodo = event => {
-     newTitle = document.querySelector("#todo-title-create").value;
-     newUser = document.querySelector("#todo-user-create").value;
+    newTitle = document.querySelector("#todo-title-create").value;
+    newUser = document.querySelector("#todo-user-create").value;
     let data = {
         title: newTitle,
         userId: newUser,
@@ -33,4 +33,3 @@ const createTodo = event => {
 const addButton = document.querySelector("#todo-create");
 addButton.addEventListener("click", createTodo);
 
-//el get se ejecuta antes que el create

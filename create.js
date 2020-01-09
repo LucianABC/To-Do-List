@@ -13,10 +13,6 @@ try {
 
  } catch (e) {}
 
-
-
-
-
 const createTodo = event => {
      newTitle = document.querySelector("#todo-title-create").value;
      newUser = document.querySelector("#todo-user-create").value;
@@ -25,16 +21,16 @@ const createTodo = event => {
         userId: newUser,
         completed: false
     }
-    lista.push(data); // ahora no anda el push?
-    /*axios.post(baseUrl, data)
+    axios.post(baseUrl, data)
         .then(res => {
             lista.push(res.data);
+            printList();
             //pushea algo vacio.
         })
-        .catch(handleError);*/
+        .catch(handleError);
 };
 
 const addButton = document.querySelector("#todo-create");
 addButton.addEventListener("click", createTodo);
-addButton.addEventListener("click", getTodos);
+
 //el get se ejecuta antes que el create

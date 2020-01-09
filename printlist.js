@@ -10,6 +10,7 @@ try {
 } catch (e) {}
 
 const printList = () => {
+    todoUl.innerHTML="";
     for (let todo of lista) {
         let idSpan = document.createElement("span");
         let titleSpan = document.createElement("span");
@@ -56,7 +57,7 @@ const getTodos = () =>{
         .catch(handleError);
 };
 
-
+getTodos();
 try {
     module.exports = {
        getTodos,

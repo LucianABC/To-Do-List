@@ -22,13 +22,22 @@ const todoStatusUpdt = document.querySelector("#todo-completed-update");
 const modifyTodo = () => {
     let id=todoIdUpdt.value;
     let title=todoTitleUpdt.value;
+    for (let todo of lista) {
+        if(todo.id == id) {
+            if (title == "") {
+                title = todo.title;
+            }        
+        }
+    }
+    
     let userId = todoUserUpdt.value;
     let completed = todoStatusUpdt.checked;
     let data = {
         title,
         userId,
         completed
-    };
+    }
+    
     axios.put(`${baseUrl}/${id}`, data)
         .then(res => {
             for (let i = 0; i < lista.length; i++) {

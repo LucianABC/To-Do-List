@@ -6,15 +6,17 @@ try {
 
 } catch (e) {}
 
-const deleteTodo = (id) => { 
-    axios.delete(`${baseUrl}/${id}`)
-        .then(res => {
-            const index = lista.findIndex(todo => {
+const deleteTodo = async(id) => { 
+    try {
+        const data = await axios.delete(`${baseUrl}/${id}`)
+        const index = lista.findIndex(todo => {
                 return todo.id == id;
-            })
-            lista.splice(index, 1);
         })
-        .catch(handleError);
+        lista.splice(index, 1);
+       
+    } catch(err) {
+        handleError;
+    }
 }
  
 try {

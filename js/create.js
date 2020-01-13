@@ -23,7 +23,6 @@ const createTodo = async() => {
     }
     try {
         const todo = await axios.post(baseUrl, data);
-        
         lista.push(res.data);
         printList();
 

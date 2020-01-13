@@ -78,3 +78,6 @@ const getToDo = async (id) => {
         handleError;
     }
 }
+
+const searchButton = document.querySelector("#search-todo-button");
+searchButton.addEventListener("click", searchButton);

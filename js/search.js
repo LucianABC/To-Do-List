@@ -13,7 +13,7 @@ try {
 
 } catch (e) {}
 
-const todoSearchInput = document.querySelector("#todo-id-search");
+const todoSearchInput = document.querySelector("#todo-input-search");
 
 const printTodo = (todo) => {
     todoUl.innerHTML=`
@@ -56,6 +56,7 @@ const printTodo = (todo) => {
     li.appendChild(idSpan);
     li.appendChild(titleSpan);
     li.appendChild(userSpan);
+
     li.appendChild(statusSpan);
     li.appendChild(deleteButton);
     if (todo.completed) {
@@ -65,22 +66,73 @@ const printTodo = (todo) => {
     todoUl.appendChild(li)
 }
 
-
-const getToDo = async () => {
+// Buscar por ID
+const searchById = async () => {
    const id = todoSearchInput.value;
     try{
-        
         const todo = await axios.get(`${baseUrl}/${id}`);
         for (let item of lista) {
             if (item.id == id){
                 printTodo(item);
             }
         } 
-
     }catch(err){
         handleError;
     }
 }
 
+//Buscar por usuario
+const searchByUser = async()=>{
+    const user = todoSearchInput.value;
+    const foundList = [];
+    try {
+        for (let item of lista) {
+            if (item.userId == user){
+                const todo = await axios.get(`${baseUrl}/${item.id}`);
+                foundList.push(todo.data);
+            }
+        }  
+
+        printList(foundList);
+        
+    }catch (err){
+        handleError;
+    }
+}
+
+const searchByText = async()=>{
+    const text = todoSearchInput.value;
+    try {
+        for (let item of lista) {
+            if (item.title.includes(text)){
+                const todo = await axios.get(`${baseUrl}/${item.id}`);
+                printTodo(item);
+            }
+        }  
+    }catch (err){
+        handleError;
+    }
+}
+
+
+const getToDo = event => {
+    const select = document.querySelector("#searchSelect");
+    switch (select.value) {
+        case "id":
+            searchById();
+            break
+        case "user":
+            searchByUser();
+            break
+        case "text":
+            searchByText();
+            break
+        case "status":
+            searchByStatus();
+            break
+    }
+}
 const searchButton = document.querySelector("#search-todo-button");
 searchButton.addEventListener("click", getToDo);
+
+

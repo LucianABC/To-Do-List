@@ -9,7 +9,7 @@ try {
     const deleteTodo = deleteJs.deleteTodo;
 } catch (e) {}
 
-const printList = () => {
+const printList = (list) => {
     todoUl.innerHTML=`
     <li>
     <span>ID</span>
@@ -20,7 +20,7 @@ const printList = () => {
 
 </li>`;
     
-    for (let todo of lista) {
+    for (let todo of list) {
         let idSpan = document.createElement("span");
         let titleSpan = document.createElement("span");
         let userSpan = document.createElement("span");
@@ -65,7 +65,7 @@ const getTodos = async() =>{
     try {
         const data = await axios.get(baseUrl);
         lista = data.data;
-        printList();
+        printList(lista);
     }catch(err){
         handleError
     }

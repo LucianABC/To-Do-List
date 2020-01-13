@@ -18,7 +18,6 @@ const todoTitleUpdt = document.querySelector("#todo-title-update");
 const todoUserUpdt = document.querySelector("#todo-user-update");
 const todoStatusUpdt = document.querySelector("#todo-completed-update");
 
-
 const modifyTodo = async() => {
     let id=todoIdUpdt.value;
     let title=todoTitleUpdt.value;
@@ -43,6 +42,9 @@ const modifyTodo = async() => {
                 lista[i] = todo.data;
             }
         }
+        todoIdUpdt.value="";
+        todoTitleUpdt.value="";
+        todoUserUpdt.value="";
         printList();
     }catch(err){
         handleError;

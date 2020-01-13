@@ -13,7 +13,7 @@ try {
 
 } catch (e) {}
 
-const createTodo = event => {
+const createTodo = async() => {
     newTitle = document.querySelector("#todo-title-create").value;
     newUser = document.querySelector("#todo-user-create").value;
     let data = {
@@ -21,13 +21,15 @@ const createTodo = event => {
         userId: newUser,
         completed: false
     }
-    axios.post(baseUrl, data)
-        .then(res => {
-            lista.push(res.data);
-            printList();
-            //pushea algo vacio.
-        })
-        .catch(handleError);
+    try {
+        const todo = await axios.post(baseUrl, data);
+        
+        lista.push(res.data);
+        printList();
+
+    }catch(err){
+        handleError;
+    }
 };
 
 const addButton = document.querySelector("#todo-create");

@@ -97,6 +97,7 @@ const searchByUser = async()=>{
         handleError;
     }
 }
+
 //Buscar por texto
 const searchByText = async()=>{
     const text = todoSearchInput.value;
@@ -114,6 +115,25 @@ const searchByText = async()=>{
     }
 }
 
+//Buscar por estado
+
+const searchByStatus = async (status)=> {
+    
+    const foundList=[];
+    try {
+        for (let item of lista) {
+            if (item.completed==status){
+                const todo = await axios.get(`${baseUrl}/${item.id}`);
+                foundList.push(todo.data);
+            }
+        }  
+        printList(foundList);
+    }catch (err){
+        handleError;
+    }
+
+}
+
 
 const getToDo = event => {
     const select = document.querySelector("#searchSelect");
@@ -127,8 +147,11 @@ const getToDo = event => {
         case "text":
             searchByText();
             break
-        case "status":
-            searchByStatus();
+        case "true":
+            searchByStatus(true);
+            break
+        case "false":
+            searchByStatus(false);
             break
     }
 }

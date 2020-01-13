@@ -12,10 +12,11 @@ try {
     const getTodos = printlistjs.getTodos;
 
 } catch (e) {}
-
+const inputNewTitle = document.querySelector("#todo-title-create");
+const inputNewUser= document.querySelector("#todo-user-create");
 const createTodo = async() => {
-    newTitle = document.querySelector("#todo-title-create").value;
-    newUser = document.querySelector("#todo-user-create").value;
+    newTitle =inputNewTitle.value;
+    newUser = inputNewUser.value;
     let data = {
         title: newTitle,
         userId: newUser,
@@ -23,8 +24,10 @@ const createTodo = async() => {
     }
     try {
         const todo = await axios.post(baseUrl, data);
-        lista.push(res.data);
+        lista.push(todo.data);
         printList();
+        inputNewTitle.value="";
+        inputNewUser.value="";
 
     }catch(err){
         handleError;

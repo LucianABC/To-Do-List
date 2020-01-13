@@ -19,7 +19,7 @@ const todoUserUpdt = document.querySelector("#todo-user-update");
 const todoStatusUpdt = document.querySelector("#todo-completed-update");
 
 
-const modifyTodo = () => {
+const modifyTodo = async() => {
     let id=todoIdUpdt.value;
     let title=todoTitleUpdt.value;
     for (let todo of lista) {
@@ -29,7 +29,6 @@ const modifyTodo = () => {
             }        
         }
     }
-    
     let userId = todoUserUpdt.value;
     let completed = todoStatusUpdt.checked;
     let data = {
@@ -37,17 +36,17 @@ const modifyTodo = () => {
         userId,
         completed
     }
-    
-    axios.put(`${baseUrl}/${id}`, data)
-        .then(res => {
-            for (let i = 0; i < lista.length; i++) {
-                if(lista[i].id == id) {
-                    lista[i] = res.data;
-                }
+    try{
+        const todo = await axios.put(`${baseUrl}/${id}`, data);
+        for (let i = 0; i < lista.length; i++) {
+            if(lista[i].id == id) {
+                lista[i] = todo.data;
             }
-            printList();
-        })
-        .catch(handleError);
+        }
+        printList();
+    }catch(err){
+        handleError;
+    }   
 };
 
 const updateButton = document.querySelector("#todo-update");

@@ -11,7 +11,7 @@ ul {
     display: flex;
     flex-direction: column;
     padding:0;
-    width: 75%;
+    width: 65%;
     box-sizing: border-box;
     background-color: white;
     margin: 10px;
@@ -29,17 +29,23 @@ ul {
         }
         span {
             box-sizing: border-box;
-            width: 22.5%;
+            width: 10%;
             padding: 10px;
             text-align: center;
             border-bottom: 1px solid #999;
 
-            &:first-child{
-                width:10%;
+           
+            
+            &:nth-child(2){
+                width:50%;
             }
-        }   
+            &:nth-child(5){
+                width:20%;
+            }
+            
+        }  
         button {
-            width: 22.5%;
+            width: 20%;
             padding:0;
             border:none;
             border-bottom: 1px solid #999;
@@ -49,7 +55,7 @@ ul {
 }
 
 .cards-container {
-    width: 30%;
+    width: 35%;
     margin: 30px;
     
 }

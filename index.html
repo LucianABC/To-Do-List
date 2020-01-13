@@ -9,20 +9,33 @@
     
     </head>
 <body>
-    <ul id="todo-list">
-        <li>
-            <span>ID</span>
-            <span>Tarea</span>
-            <span>Usuario</span>
-            <span>Completada</span>
-            <span>Eliminar</span>
-
-        </li>
-    </ul>
     <section class="cards-container">
-        
-        <section class="card">
-            <h1>Agregar Tarea</h1>
+        <!--------------N A V B A R  ------------->
+        <nav class="cardNavBar">
+            <span class="navBttn active" id="searchNav"><h1>Buscar tarea</h1></span>
+            <span class="navBttn" id="addNav"><h1>Agregar tarea</h1></span>
+            <span class="navBttn" id="modNav"><h1>Modificar tarea</h1></span>
+        </nav>
+        <!--------------N A V B A R (E N D)  ------------->
+        <!--------------S E A R C H ------------->
+        <section class="card" id="searchCard">
+            <section class="card-inputs">
+                <div id="todo-search-div">                    
+                    <select id="searchSelect">
+                        <option value="" selected>Buscar por...</option>
+                        <option value="id">ID</option> 
+                        <option value="user" >Usuario</option>
+                        <option value="text">Tarea</option>
+                        <option value="status">Estado</option>
+                    </select>
+                    <input type="text" id="todo-title-search" placeholder="ID"/>
+                </div>
+                
+            </section>
+            <button id="search-todo-button">Buscar</button>
+        </section>
+
+        <section class="card hide" id="addCard">
             <section class="card-inputs">
                 <div id="todo-user-create-div">
                     <span>Usuario</span>
@@ -37,8 +50,7 @@
             <button id="todo-create">Agregar</button>
         </section>
 
-        <section class="card">
-            <h1>Modificar Tarea</h1>
+        <section class="card hide" id="modCard">
             <article class ="card-inputs">
                 <div id="todo-id-update-div">
                     <span>Tarea a modificar</span>
@@ -61,29 +73,26 @@
             
             <button id="todo-update">Modificar</button>
         </section>
-
-        
-        <section class="card">
-            <h1>Buscar Tarea</h1>
-            <section class="card-inputs">
-                <div id="todo-search-div">
-                    <span>Buscar tarea</span>
-                    <input type="text" id="todo-id-search" placeholder="ID"/>
-                </div>
-                
-            </section>
-            <button id="search-todo-button">Buscar</button>
-        </section>
+            
+      
     </section>
+    <ul id="todo-list">
+        <li>
+            <span>ID</span>
+            <span>Tarea</span>
+            <span>Usuario</span>
+            <span>Completada</span>
+            <span>Eliminar</span>
 
+        </li>
+    </ul>
+    <script src="./js/nav.js"></script>
     <script src="./js/variables.js"></script>
     <script src="./js/printlist.js"></script>
+    <script src="./js/search.js"></script>
     <script src="./js/create.js"></script>
     <script src="./js/delete.js"></script>
    <script src="./js/modify.js"></script>
-    
-    <script src=""></script>
-    <script src=""></script>
 
 
 </body>

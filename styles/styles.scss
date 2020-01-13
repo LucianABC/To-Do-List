@@ -15,6 +15,7 @@ ul {
     box-sizing: border-box;
     background-color: white;
     margin: 10px;
+    margin-left: 0;
     border:1px solid #999;
     li {
         box-sizing: border-box;
@@ -47,10 +48,46 @@ ul {
     }
 }
 
+.cards-container {
+    width: 30%;
+    margin: 30px;
+    
+}
+.cardNavBar {
+    width:100%;
+    display:flex;
+    box-sizing: border-box;
+    background-color: white;
+    align-items: center;
+    box-shadow: 0 0 5px #666;
+    border: none;
+
+    span {
+        box-sizing: border-box;
+        width: 33.4%;
+        text-align: center;
+        padding: 10px;
+        background-color:#bdbdbd;
+        color: white;
+        h1 {
+            margin:0;
+            font-weight: normal;
+        }
+    }
+    .active {
+        background-color: white;
+        color: black;
+    }
+}
+
+.hide {
+    display: none;
+}
 .card{
     box-shadow: 0 0 5px #666;
     padding: 25px;
-    margin: 25px;
+    
+    
     background-color: white;
     h1 {
         margin: 0;
@@ -104,6 +141,20 @@ ul {
     
     #todo-title-create-div {
         width: 100%;
+    }
+
+    #todo-search-div {
+        width: 100%;
+        flex-direction: row;
+        input {
+            box-sizing: border-box;
+            width: 70%;
+        }
+        select {
+            box-sizing: border-box;
+            margin-right: 5px;
+            width: 30%;
+        }
     }
 }
 

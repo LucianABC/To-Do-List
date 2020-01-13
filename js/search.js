@@ -13,6 +13,7 @@ try {
 
 } catch (e) {}
 
+const todoSearchInput = document.querySelector("#todo-id-search");
 
 const printTodo = (todo) => {
     todoUl.innerHTML=`
@@ -65,8 +66,10 @@ const printTodo = (todo) => {
 }
 
 
-const getToDo = async (id) => {
+const getToDo = async () => {
+   const id = todoSearchInput.value;
     try{
+        
         const todo = await axios.get(`${baseUrl}/${id}`);
         for (let item of lista) {
             if (item.id == id){
@@ -80,4 +83,4 @@ const getToDo = async (id) => {
 }
 
 const searchButton = document.querySelector("#search-todo-button");
-searchButton.addEventListener("click", searchButton);
+searchButton.addEventListener("click", getToDo);

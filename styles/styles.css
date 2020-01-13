@@ -15,6 +15,7 @@ ul {
   box-sizing: border-box;
   background-color: white;
   margin: 10px;
+  margin-left: 0;
   border: 1px solid #999;
 }
 ul li {
@@ -43,10 +44,44 @@ ul li button {
   background-color: #ebe9e9;
 }
 
+.cards-container {
+  width: 30%;
+  margin: 30px;
+}
+
+.cardNavBar {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  background-color: white;
+  align-items: center;
+  box-shadow: 0 0 5px #666;
+  border: none;
+}
+.cardNavBar span {
+  box-sizing: border-box;
+  width: 33.4%;
+  text-align: center;
+  padding: 10px;
+  background-color: #bdbdbd;
+  color: white;
+}
+.cardNavBar span h1 {
+  margin: 0;
+  font-weight: normal;
+}
+.cardNavBar .active {
+  background-color: white;
+  color: black;
+}
+
+.hide {
+  display: none;
+}
+
 .card {
   box-shadow: 0 0 5px #666;
   padding: 25px;
-  margin: 25px;
   background-color: white;
 }
 .card h1 {
@@ -96,6 +131,19 @@ ul li button {
 }
 .card #todo-title-create-div {
   width: 100%;
+}
+.card #todo-search-div {
+  width: 100%;
+  flex-direction: row;
+}
+.card #todo-search-div input {
+  box-sizing: border-box;
+  width: 70%;
+}
+.card #todo-search-div select {
+  box-sizing: border-box;
+  margin-right: 5px;
+  width: 30%;
 }
 
 .done {

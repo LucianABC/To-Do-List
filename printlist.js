@@ -61,13 +61,15 @@ const printList = () => {
     }
 }
 
-const getTodos = () =>{
-    axios.get(baseUrl)
-        .then(res => {
-            lista = res.data;
-            printList();
-        })
-        .catch(handleError);
+const getTodos = async() =>{
+    try {
+        const data = await axios.get(baseUrl);
+        lista = data.data;
+        printList();
+    }catch(err){
+        handleError
+    }
+    
 };
 
 getTodos();

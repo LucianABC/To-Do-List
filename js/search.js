@@ -92,23 +92,23 @@ const searchByUser = async()=>{
                 foundList.push(todo.data);
             }
         }  
-
         printList(foundList);
-        
     }catch (err){
         handleError;
     }
 }
-
+//Buscar por texto
 const searchByText = async()=>{
     const text = todoSearchInput.value;
+    const foundList = [];
     try {
         for (let item of lista) {
             if (item.title.includes(text)){
                 const todo = await axios.get(`${baseUrl}/${item.id}`);
-                printTodo(item);
+                foundList.push(todo.data);
             }
         }  
+        printList(foundList);
     }catch (err){
         handleError;
     }

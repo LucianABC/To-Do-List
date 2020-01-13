@@ -23,7 +23,6 @@ const printTodo = (todo) => {
     <span>Usuario</span>
     <span>Completada</span>
     <span>Eliminar</span>
-
 </li>`;
         
     let idSpan = document.createElement("span");
@@ -39,7 +38,6 @@ const printTodo = (todo) => {
     userSpan.className = "todo-user";
     statusSpan.innerHTML=todo.completed;
     statusSpan.className = "todo-completed";
-
 
     let deleteButton = document.createElement("button");
     deleteButton.className ="todo-delete";
@@ -60,12 +58,11 @@ const printTodo = (todo) => {
     li.appendChild(statusSpan);
     li.appendChild(deleteButton);
     if (todo.completed) {
-    li.classList.add("done");
+        li.classList.add("done");
     }
 
     todoUl.appendChild(li)
 }
-
 // Buscar por ID
 const searchById = async () => {
    const id = todoSearchInput.value;
@@ -80,7 +77,6 @@ const searchById = async () => {
         handleError;
     }
 }
-
 //Buscar por usuario
 const searchByUser = async()=>{
     const user = todoSearchInput.value;
@@ -97,7 +93,6 @@ const searchByUser = async()=>{
         handleError;
     }
 }
-
 //Buscar por texto
 const searchByText = async()=>{
     const text = todoSearchInput.value;
@@ -116,7 +111,6 @@ const searchByText = async()=>{
 }
 
 //Buscar por estado
-
 const searchByStatus = async (status)=> {
     
     const foundList=[];
@@ -131,9 +125,7 @@ const searchByStatus = async (status)=> {
     }catch (err){
         handleError;
     }
-
 }
-
 
 const getToDo = event => {
     const select = document.querySelector("#searchSelect");

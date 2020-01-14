@@ -14,6 +14,7 @@ try {
 } catch (e) {}
 
 const todoSearchInput = document.querySelector("#todo-input-search");
+let foundList = [];
 
 const printTodo = (todo) => {
     todoUl.innerHTML=`
@@ -63,6 +64,51 @@ const printTodo = (todo) => {
 
     todoUl.appendChild(li)
 }
+
+// Filtro
+
+const getFilter = () => {
+    let filterValue= "";
+    const radioButtons = document.getElementsByName("filter");
+    for (let radioButton of radioButtons) {
+        if (radioButton.checked){
+            filterValue=radioButton.value;
+        }
+    }
+    switch (filterValue){
+        case "done":
+            filterValue = true;
+            break
+        case "pending":
+            filterValue = false;
+            break
+        case "all":
+            filterValue = undefined;
+            break        
+    }
+    return filterValue;
+}
+
+
+//Filtrar por estado
+const sortByStatus = ()=> {
+    const status = getFilter();
+    const filteredList=[];
+    try {
+        if (status!== undefined){
+            for (let item of foundList) {
+                if (item.completed==status){
+                    filteredList.push(item);
+                }
+            }
+            
+         foundList = filteredList;  
+        }
+    }catch (err){
+        handleError;
+    }
+}
+
 // Buscar por ID
 const searchById = async () => {
    const id = todoSearchInput.value;
@@ -80,7 +126,6 @@ const searchById = async () => {
 //Buscar por usuario
 const searchByUser = async()=>{
     const user = todoSearchInput.value;
-    const foundList = [];
     try {
         for (let item of lista) {
             if (item.userId == user){
@@ -88,6 +133,7 @@ const searchByUser = async()=>{
                 foundList.push(todo.data);
             }
         }  
+        sortByStatus();
         printList(foundList);
     }catch (err){
         handleError;
@@ -96,7 +142,6 @@ const searchByUser = async()=>{
 //Buscar por texto
 const searchByText = async()=>{
     const text = todoSearchInput.value;
-    const foundList = [];
     try {
         for (let item of lista) {
             if (item.title.includes(text)){
@@ -104,48 +149,33 @@ const searchByText = async()=>{
                 foundList.push(todo.data);
             }
         }  
+        sortByStatus();
         printList(foundList);
     }catch (err){
         handleError;
     }
 }
 
-//Buscar por estado
-const searchByStatus = async (status)=> {
-    
-    const foundList=[];
-    try {
-        for (let item of lista) {
-            if (item.completed==status){
-                const todo = await axios.get(`${baseUrl}/${item.id}`);
-                foundList.push(todo.data);
-            }
-        }  
-        printList(foundList);
-    }catch (err){
-        handleError;
-    }
-}
+
+
 
 const getToDo = event => {
     const select = document.querySelector("#searchSelect");
     switch (select.value) {
         case "id":
             searchById();
+            foundList = [];
             break
         case "user":
             searchByUser();
+            foundList = [];
             break
         case "text":
             searchByText();
-            break
-        case "true":
-            searchByStatus(true);
-            break
-        case "false":
-            searchByStatus(false);
+            foundList = [];
             break
     }
+    
 }
 const searchButton = document.querySelector("#search-todo-button");
 searchButton.addEventListener("click", getToDo);

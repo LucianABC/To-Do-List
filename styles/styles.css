@@ -148,6 +148,9 @@ ul li button {
   margin-right: 5px;
   width: 30%;
 }
+.card #todo-filter-div {
+  flex-direction: row;
+}
 
 .done {
   background-color: #c6ff75;

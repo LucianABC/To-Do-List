@@ -156,26 +156,24 @@ const searchByText = async()=>{
     }
 }
 
-
-
-
 const getToDo = event => {
     const select = document.querySelector("#searchSelect");
     switch (select.value) {
+        case "0":
+            foundList=lista;
+            sortByStatus();
+            printList(foundList)
         case "id":
             searchById();
-            foundList = [];
             break
         case "user":
             searchByUser();
-            foundList = [];
             break
         case "text":
             searchByText();
-            foundList = [];
             break
     }
-    
+    foundList = [];
 }
 const searchButton = document.querySelector("#search-todo-button");
 searchButton.addEventListener("click", getToDo);
